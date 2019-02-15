@@ -52,7 +52,7 @@ def bad_request(e):
 @app.route("/<path:requested_url>")
 def index(requested_url):
 
-    problem = onlinejudge.dispatch.problem_from_url(requested_url)
+    problem = onlinejudge.dispatch.problem_from_url(requested_url.replace(':/', '://'))
     if problem is None:
         abort(400, 'URL is not reconginzed / URL が認識できません')
     if problem.get_service().get_name() != 'atcoder':
