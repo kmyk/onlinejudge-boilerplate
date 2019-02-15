@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.3.1/dist/semantic.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui-popup@2.3.1/popup.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/codemirror@5.43.0/lib/codemirror.css">
+    <link rel="stylesheet" href="./index.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/semantic-ui@2.3.1/dist/semantic.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/semantic-ui-popup@2.3.1/popup.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/codemirror@5.43.0/lib/codemirror.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/codemirror@5.43.0/mode/clike/clike.js"></script>
+    <script defer src="./index.js"></script>
+</head>
+<body>
+    <div class="ui menu">
+        <div class="item">
+            <h1>OnlineJudge Boilerplate / AtCoder の問題の URL を入力するといい感じのテンプレを出力してくれる Web ページ</h1>
+        </div>
+        <div class="right item">
+            <a href="https://github.com/kmyk/onlinejudge-bilerplate"><i class="code icon"></i>source</a>
+        </div>
+    </div>
+
+
+    <div class="ui container">
+        <details>
+            <summary>説明</summary>
+            <ul>
+                <li> 入力を受け取る部分や MOD などを自動で生成し、あとは <code>solve()</code> 関数を埋めるだけないい感じのテンプレが生成されます。 </li>
+                <li> 変数 <code>test_samples</code> を <code>true</code> にするとサンプルケースを自動でテストしてくれます。ただし、答えが合っているかどうかは目diffし、提出前には <code>false</code> に戻すことを忘れないでください。 </li>
+                <li> 内部では <a href="https://github.com/kyuridenamida/atcoder-tools">atcoder-tools</a> と <a href="https://github.com/kmyk/online-judge-tools">online-judge-tools</a> をいい感じに叩いています。 </li>
+                <li> C++ 以外の言語についてのテンプレが欲しいなら <a href="https://github.com/kyuridenamida/atcoder-tools">atcoder-tools</a> を、もっと楽にサンプルケースをテストしたいなら <a href="https://github.com/kmyk/online-judge-tools">online-judge-tools</a> を直接使ってください。 </li>
+            </ul>
+        </details>
+
+        <form onsubmit="return false;" class="ui form">
+            <div class="inline fields">
+                <div class="sixteen wide field">
+                    <div class="ui labeled input">
+                        <label class="ui label">
+                            URL
+                            <i class="question circle icon" data-content="AtCoder の問題の URL を貼り付けてください"></i>
+                        </label>
+                        <input type="text" id="input" placeholder="https://atcoder.jp/contests/agc001/tasks/agc001_a">
+                        <button type="submit" id="button" class="ui primary button">
+                            Generate
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </form>
+
+        <div class="ui container">
+            <div class="sixteen wide field">
+                <label>Generated Code</label>
+                <textarea id="textarea"></textarea>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
